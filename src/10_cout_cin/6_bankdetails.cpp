@@ -1,0 +1,84 @@
+using namespace std;
+#include<iostream>
+#include<string.h>
+class bankdetails
+{
+	int accountno;
+	char name[20];
+	double deposit;
+	char branch[20];
+public:
+	bankdetails()
+	{
+		this->accountno = 100;
+		strcpy(this->name, "not given");
+		this->deposit = 15454.55;
+		strcpy(this->branch, "Pune");
+	}
+	bankdetails(int ac, char* nm, double d, char*b)
+	{
+		this->accountno = ac;
+		strcpy(this->name, nm);
+		this->deposit = d;
+		strcpy(this->branch, b);
+	}
+	void setAccountno(int ac)
+	{
+		this->accountno = ac;
+	}
+	void setName(char* nm)
+	{
+		strcpy(this->name, nm);
+	}
+	void setDeposit(double d)
+	{
+		this->deposit = d;
+	}
+	void setBranch(char*b)
+	{
+		strcpy(this->branch, b);
+	}
+
+
+	int getAccountno()
+	{
+		return this->accountno;
+	}
+	char* getName()
+	{
+		return this->name;
+	}
+	double getDeposit()
+	{
+		return this->deposit;
+	}
+	char* getBranch()
+	{
+		return this->branch;
+	}
+
+
+	void display()
+	{
+		cout<<"\nBank deposit details=(using display())";
+		cout<<"\nAccount no. is="<<this->accountno;
+		cout<<"\nName is="<<this->name;
+		cout<<"\nDeposit Amount is="<<this->deposit;
+		cout<<"\nBranch name is="<<this->branch;
+		cout<<"\n\n";
+	}
+};
+
+int main()
+{
+	bankdetails*ptr;
+	ptr = new bankdetails();
+	ptr->display();
+	delete ptr;
+
+	bankdetails*p1;
+	p1 = new bankdetails(62498, "Saif", 20000, "Omerga");
+	p1->display();
+	delete p1;
+	cout<<"\n\n";
+}
